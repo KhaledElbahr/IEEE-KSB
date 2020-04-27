@@ -1,0 +1,63 @@
+<section class="team-view">
+  <header class="page-header">
+    <div class="text-heading">
+      <h1 class="heading-primary">Our Awesome Team</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+        distinctio praesentium maxime mollitia vero saepe recusandae labore
+        repudiandae libero odit?
+      </p>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <!-- Team -->
+      <mat-grid-list [cols]="columnNum" rowHeight="465px" gutterSize="20px">
+        <mat-grid-tile [colspan]="cols" *ngFor="let card of cards">
+          <mat-card class="mat-card">
+            <img
+              mat-card-image
+              src="https://picsum.photos/250/200"
+              alt="Photo of a Shiba Inu"
+            />
+            <mat-card-content>
+              <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <div class="mat-content">
+                      <mat-panel-title>
+                        Khaled Elbahr
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        Front end developer
+                      </mat-panel-description>
+                    </div>
+                  </mat-expansion-panel-header>
+                  <div class="mat-body">
+                    <a routerLink="/" class="links">
+                      <mat-icon class="card-icon">mail</mat-icon>
+                      <span class="card-link">khaledelbahr2016@gmail.com</span>
+                    </a>
+
+                    <a routerLink="/" class="links">
+                      <mat-icon
+                        class="card-icon"
+                        svgIcon="linkedin"
+                        aria-label="Example linkedin SVG icon"
+                        >linkedin</mat-icon
+                      >
+                      <span class="card-link"
+                        >linkedin.com/in/khaled-elbahr-91a78a137</span
+                      >
+                    </a>
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </main>
+</section>

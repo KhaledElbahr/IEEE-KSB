@@ -1,1 +1,171 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==phone {
+    @media only screen and (max-width: 37.5em) {
+      @content
+    }
+
+    ; //600px
+  }
+
+  @if $breakpoint==tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content
+    }
+
+    ; //900px
+  }
+
+  @if $breakpoint==tab-land {
+    @media only screen and (max-width: 82.5em) {
+      @content
+    }
+
+    ; //1320px
+  }
+
+  @if $breakpoint==big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content
+    }
+
+    ; //1800
+  }
+}
+
+// VARIABLES
+$color-white: #fff;
+$color-black: #000;
+
+$color-main-1: #08669B;
+$color-main-3: #003d93;
+
+$color-dark-grey-1: #5C5C77;
+$color-dark-grey-4: #7a7a7a;
+
+$color-light-grey-2: #F9F6F8;
+$color-light-grey-3: #EDEDF1;
+
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75; //1rem = 12, 12/16
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1.6rem !important;
+  line-height: 1.4 !important;
+  letter-spacing: normal;
+  word-spacing: 1.2;
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif !important;
+  background-color: #fafafa;
+
+  p {
+    color: #7a7a7a;
+  }
+}
+
+.container {
+  max-width: 90%;
+  padding: 0 15px;
+  margin: 0 auto;
+
+  @include respond(tab-port) {
+    // width < 900?
+    max-width: 100%; //1 rem = 8px, 8/16 = 50%
+  }
+}
+
+//HEADER STYLING
+.page-header {
+  // background-color: #10375c;
+  // background-color: #3f51b5;
+  background: linear-gradient(to bottom, #00287A, #20459b);
+  height: 400px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: #fff;
+  }
+}
+
+.heading-primary {
+  font-size: 5rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.heading-secondary {
+  font: 400 3rem Roboto, "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  color: $color-main-1;
+}
+
+.heading-tertiary {
+  font: 400 2rem Roboto, "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  color: $color-main-1;
+}
+
+.main-content {
+  margin: 2.2rem 4.8rem;
+
+  @include respond(tab-port) {
+    // width < 900?
+    margin: 2.2rem 0;
+  }
+}
+
+.mat-card {
+  box-shadow: 2px 2px 6px 0 rgba(46, 61, 73, 0.2) !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn {
+  color: $color-white;
+  background-color: $color-main-3;
+  transition: all .3s;
+  border: 1px solid transparent;
+  padding: .5rem 1rem;
+  font-size: 1.6rem;
+
+  &:hover {
+    color: $color-main-3;
+    background-color: $color-white;
+    border: 1px solid $color-main-3;
+  }
+
+  &:disabled {
+    background-color: #7d9dca;
+    border: none;
+  }
+
+  &:disabled:hover {
+    color: rgba(0, 0, 0, .26);
+  }
+}
