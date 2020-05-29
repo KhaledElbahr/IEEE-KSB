@@ -1,0 +1,86 @@
+<!-- Navbar -->
+<mat-toolbar>
+  <mat-toolbar-row class="mat-toolbar-row">
+    <mat-icon
+      class="mat-icon-logo"
+      aria-hidden="false"
+      aria-label="IEEE-KSB"
+      routerLink="/home"
+      routerLinkActive="active"
+      role="img"
+    >
+      <img src="../../../../assets/images/IEEE.png" alt="logo" />
+    </mat-icon>
+    <span class="example-spacer"></span>
+
+    <button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="toggleSideBar()"
+      *ngIf="isHandset$ | async"
+    >
+      <mat-icon *ngIf="!sidebar" aria-label="Side bar toggle icon"
+        >menu</mat-icon
+      >
+      <mat-icon *ngIf="sidebar" aria-label="Side bar toggle icon">
+        close</mat-icon
+      >
+    </button>
+
+    <ul *ngIf="!(isHandset$ | async)">
+      <li>
+        <button
+          mat-flat-button
+          class="mat-nav mat-btn-nav"
+          routerLink="/home"
+          routerLinkActive="active"
+          routerLinkActiveOptions="{exact: true}"
+        >
+          Home
+        </button>
+      </li>
+      <li>
+        <button
+          mat-flat-button
+          class="mat-nav mat-btn-nav"
+          href="#"
+          routerLink="/about"
+          routerLinkActive="active"
+        >
+          About
+        </button>
+      </li>
+      <li>
+        <button
+          mat-flat-button
+          class="mat-nav mat-btn-nav"
+          routerLink="/articles"
+          routerLinkActive="active"
+        >
+          Articles
+        </button>
+      </li>
+      <li>
+        <button
+          mat-flat-button
+          class="mat-nav mat-btn-nav"
+          routerLink="/team"
+          routerLinkActive="active"
+        >
+          Teams
+        </button>
+      </li>
+      <li>
+        <button
+          mat-flat-button
+          class="mat-nav mat-btn-nav"
+          routerLink="/contact-us"
+          routerLinkActive="active"
+        >
+          Contact
+        </button>
+      </li>
+    </ul>
+  </mat-toolbar-row>
+</mat-toolbar>

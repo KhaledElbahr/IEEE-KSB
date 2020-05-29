@@ -1,0 +1,98 @@
+<section class="contact-us">
+  <div class="content-wrapper">
+    <div class="contact-section-heading">
+      <h1 class="heading-primary">Contact Us</h1>
+      <h2 class="heading-secondary">We'd love to hear from you!</h2>
+    </div>
+    <main>
+      <div class="contact-section-form">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <!-- Name -->
+          <div class="form-group">
+            <mat-form-field floatLabel="auto" class="form-control">
+              <mat-label>Name</mat-label>
+              <input
+                matInput
+                class="control-input"
+                type="text"
+                formControlName="name"
+                placeholder="@ex.Ahmed"
+                required
+              />
+            </mat-form-field>
+            <div *ngIf="name.valid && name.dirty && name.touched">
+              <small class="help-block">Looks good!</small>
+            </div>
+          </div>
+          <!-- Email Address -->
+          <div class="form-group">
+            <mat-form-field floatLabel="auto" class="form-control">
+              <mat-label>Email Address</mat-label>
+              <input
+                matInput
+                class="control-input"
+                formControlName="email"
+                placeholder="Ex. Ahmed@example.com"
+                required
+              />
+              <mat-error
+                *ngIf="
+                  email.hasError('email') &&
+                  email.invalid &&
+                  !email.hasError('required')
+                "
+              >
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+            <div *ngIf="email.valid && email.dirty && email.touched">
+              <small class="help-block">Looks good!</small>
+            </div>
+          </div>
+          <!-- Contact Phone -->
+          <div class="form-group">
+            <mat-form-field hintLabel="Max 11 characters" class="form-control">
+              <mat-label>Phone Number</mat-label>
+              <input
+                matInput
+                class="control-input"
+                formControlName="phone"
+                #phoneInput
+                maxLength="11"
+                placeholder="@01"
+              />
+              <mat-hint align="end"
+                >{{ phoneInput.value?.length || 0 }}/11</mat-hint
+              >
+            </mat-form-field>
+            <div *ngIf="phone.valid && phone.dirty && phone.touched">
+              <small class="help-block">Looks good!</small>
+            </div>
+          </div>
+          <!-- Comment -->
+          <div class="form-group">
+            <mat-form-field class="form-control">
+              <mat-label>Leave a comment</mat-label>
+              <textarea
+                matInput
+                class="control-input"
+                formControlName="comment"
+                placeholder="Ex. It makes me feel..."
+              ></textarea>
+            </mat-form-field>
+          </div>
+          <div class="button">
+            <button
+              mat-raised-button
+              class="btn"
+              type="submit"
+              [disabled]="!contactForm.valid"
+            >
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+</section>

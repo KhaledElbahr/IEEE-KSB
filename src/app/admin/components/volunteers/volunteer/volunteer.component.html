@@ -1,0 +1,148 @@
+<section class="edit-profile">
+  <div class="content-wrapper">
+    <div class="contact-section-heading">
+      <h2 class="heading-primary" mat-dialog-title>{{ pageTitle }}</h2>
+    </div>
+    <main>
+      <div class="edit-profile-form">
+        <mat-dialog-content>
+          <form [formGroup]="volunteerForm">
+            <div fxLayout="row" fxLayoutGap="20px">
+              <!-- Eng Name -->
+              <div class="form-group" fxFlex="50">
+                <mat-form-field floatLabel="auto" class="form-control">
+                  <mat-label>Name in English</mat-label>
+                  <input
+                    matInput
+                    class="control-input"
+                    type="text"
+                    formControlName="eng_name"
+                    placeholder="Enter volunteer's name"
+                    required
+                  />
+                </mat-form-field>
+              </div>
+              <!-- Arab Name -->
+              <div class="form-group" fxFlex="50">
+                <mat-form-field floatLabel="auto" class="form-control start">
+                  <mat-label>الأسم بالعربى</mat-label>
+                  <input
+                    matInput
+                    class="control-input"
+                    type="text"
+                    formControlName="arab_name"
+                    placeholder="أدخل أسم المتطوع"
+                    required
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- Age -->
+            <div class="form-group">
+              <mat-form-field floatLabel="auto" class="form-control">
+                <mat-label>Age</mat-label>
+                <input
+                  matInput
+                  class="control-input"
+                  type="number"
+                  formControlName="age"
+                  placeholder="Enter volunteer's age"
+                  min="19"
+                  max="35"
+                  required
+                />
+              </mat-form-field>
+            </div>
+
+            <!-- G-mail Account -->
+            <div class="form-group">
+              <mat-form-field floatLabel="auto" class="form-control">
+                <mat-label>Gmail Account</mat-label>
+                <input
+                  matInput
+                  class="control-input"
+                  formControlName="gmail"
+                  placeholder="Ex. Ahmed@gmail.com"
+                  required
+                />
+                <mat-error *ngIf="gmail.invalid && !gmail.hasError('required')">
+                  Please enter a valid Gmail address
+                </mat-error>
+              </mat-form-field>
+              <div *ngIf="gmail.valid && gmail.dirty && gmail.touched">
+                <small class="help-block">Looks good!</small>
+              </div>
+            </div>
+            <!-- Linkedin Account -->
+            <div class="form-group">
+              <mat-form-field floatLabel="auto" class="form-control">
+                <mat-label>LinkedIn Account</mat-label>
+                <input
+                  matInput
+                  class="control-input"
+                  formControlName="linkedIn"
+                  placeholder="Ex. linkedin.com/example"
+                  required
+                />
+                <mat-error
+                  *ngIf="linkedIn.invalid && !linkedIn.hasError('required')"
+                >
+                  Please enter a valid LinkedIn Account
+                </mat-error>
+              </mat-form-field>
+              <div *ngIf="linkedIn.valid && linkedIn.dirty && linkedIn.touched">
+                <small class="help-block">Looks good!</small>
+              </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="20px">
+              <!-- Role -->
+              <mat-form-field fxFlex="50" class="select-control">
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="role" required>
+                  <mat-option *ngFor="let role of roles" [value]="role.id">
+                    {{ role.name | uppercase }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <!-- Committee Name -->
+              <mat-form-field fxFlex="50" class="select-control">
+                <mat-label>Committee Name</mat-label>
+                <mat-select formControlName="committee" required>
+                  <mat-option
+                    *ngFor="let committee of committees"
+                    [value]="committee.id"
+                  >
+                    {{ committee.name | uppercase }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <mat-dialog-actions>
+              <button
+                class="mat-raised-button mat-primary"
+                (click)="onSave()"
+                [title]="
+                  volunteerForm.valid
+                    ? 'Save your entered data'
+                    : 'Disabled until the form data is valid'
+                "
+                [disabled]="!volunteerForm.valid"
+              >
+                Save
+              </button>
+              <button
+                class="mat-raised-button mat-accent"
+                title="Cancel your data"
+                (click)="onCancel()"
+              >
+                Cancel
+              </button>
+            </mat-dialog-actions>
+          </form>
+        </mat-dialog-content>
+      </div>
+    </main>
+  </div>
+</section>

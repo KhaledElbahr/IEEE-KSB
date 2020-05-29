@@ -1,0 +1,66 @@
+<section class="articles-view">
+  <header class="page-header">
+    <div>
+      <h1 class="heading-primary">ARTICLES</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+        distinctio praesentium maxime mollitia vero saepe recusandae labore
+        repudiandae libero odit?
+      </p>
+    </div>
+  </header>
+  <main class="main-content">
+    <div class="container">
+      <!-- Filter By Year -->
+      <section class="filter">
+        <mat-form-field class="end">
+          <mat-label>Filter by year</mat-label>
+          <mat-select
+            [(ngModel)]="selectedYear"
+            (ngModelChange)="onSelectYear()"
+            name="year"
+          >
+            <mat-option [value]="allArticles">All Articles</mat-option>
+            <mat-option *ngFor="let y of years" [value]="y.id">
+              {{ y.year }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </section>
+      <!-- Articles Cards -->
+      <section class="card-list">
+        <mat-grid-list [cols]="columnNum" rowHeight="450px" gutterSize="20px">
+          <!-- article -->
+          <mat-grid-tile *ngFor="let article of articles">
+            <mat-card>
+              <img
+                mat-card-image
+                src="{{ article.image }}"
+                title="{{ article.title }}"
+                alt="{{ article.title }}"
+              />
+              <mat-card-content>
+                <p>
+                  {{ article.description }}
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button class="btn-read" mat-raised-button color="primary">
+                  <a
+                    href="{{ article.link }}"
+                    title="{{ article.title }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    READ MORE
+                    <mat-icon>open_in_new</mat-icon>
+                  </a>
+                </button>
+              </mat-card-actions>
+            </mat-card></mat-grid-tile
+          >
+        </mat-grid-list>
+      </section>
+    </div>
+  </main>
+</section>

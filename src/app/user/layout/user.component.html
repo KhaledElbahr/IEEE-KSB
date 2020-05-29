@@ -1,0 +1,35 @@
+<app-header
+  [sidebar]="sideBarOpen"
+  (toggleSideBarForMe)="sideBarToggler()"
+></app-header>
+
+<mat-sidenav-container>
+  <mat-sidenav
+    class="sidenav"
+    fixedInViewport="false"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    mode="over"
+    [opened]="sideBarOpen"
+  >
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<footer class="footer">
+  <div class="copyright">
+    <!-- Copyright @ 2020 - new Date() -->
+    Copyright &nbsp; 2020 IEEE KSB SB | All Rights Reserved
+  </div>
+  <div class="signature">
+    Made with
+    <mat-icon class="mat-icon-favorite" role="img" aria-hidden="true"
+      >favorite</mat-icon
+    >
+    by IEEE Web Team
+  </div>
+</footer>

@@ -1,0 +1,90 @@
+<section class="edit-profile">
+  <div class="content-wrapper">
+    <div class="contact-section-heading">
+      <h2 class="heading-primary" mat-dialog-title>Edit Profile Info</h2>
+    </div>
+    <main>
+      <div class="edit-profile-form">
+        <mat-dialog-content [formGroup]="editProfile">
+          <!-- Name -->
+          <div class="form-group">
+            <mat-form-field floatLabel="auto" class="form-control">
+              <mat-label>Name</mat-label>
+              <input
+                matInput
+                class="control-input"
+                type="text"
+                formControlName="name"
+                placeholder="Ex. Ahmed"
+              />
+            </mat-form-field>
+            <div *ngIf="name.valid && name.dirty && name.touched">
+              <small class="help-block">Looks good!</small>
+            </div>
+          </div>
+          <!-- E-mail Address -->
+          <div class="form-group">
+            <mat-form-field floatLabel="auto" class="form-control">
+              <mat-label>Email Address</mat-label>
+              <input
+                matInput
+                class="control-input"
+                formControlName="email"
+                placeholder="Ex. Ahmed@example.com"
+              />
+              <mat-error
+                *ngIf="
+                  email.hasError('email') &&
+                  email.invalid &&
+                  !email.hasError('required')
+                "
+              >
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+            <div *ngIf="email.valid && email.dirty && email.touched">
+              <small class="help-block">Looks good!</small>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayoutGap="20px">
+            <!-- Role -->
+            <mat-form-field fxFlex="50" class="select-control">
+              <mat-label>Role</mat-label>
+              <mat-select formControlName="role">
+                <mat-option *ngFor="let role of roles" [value]="role.id">
+                  {{ role.name | uppercase }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Committee Name -->
+            <mat-form-field fxFlex="50" class="select-control">
+              <mat-label>Committee Name</mat-label>
+              <mat-select formControlName="committee">
+                <mat-option
+                  *ngFor="let committee of committees"
+                  [value]="committee.id"
+                >
+                  {{ committee.name | uppercase }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <mat-dialog-actions>
+            <button
+              class="mat-raised-button mat-primary"
+              (click)="onSave()"
+              [disabled]="!editProfile.valid"
+            >
+              Save
+            </button>
+            <button class="mat-raised-button mat-accent" (click)="onCancel()">
+              Cancel
+            </button>
+          </mat-dialog-actions>
+        </mat-dialog-content>
+      </div>
+    </main>
+  </div>
+</section>

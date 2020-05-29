@@ -1,0 +1,34 @@
+<mat-nav-list>
+  <div class="profile-card" *ngIf="admin">
+    <div class="header">
+      <img src="../../../../assets/images/logo.png" alt="admin-name" />
+      <h2>{{ admin.name | titlecase }}</h2>
+      <h4>
+        <i>{{ admin.role.name | titlecase}} of {{ admin.committee.name | titlecase}}</i>
+      </h4>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <a
+    mat-list-item
+    class="mat-btn-nav"
+    routerLinkActive="active"
+    routerLink="dashboard"
+    routerLinkActiveOptions="{exact: true}"
+    >Dashboard</a
+  >
+  <a
+    mat-list-item
+    class="mat-btn-nav"
+    routerLinkActive="active"
+    routerLink="volunteers"
+    >Volunteers</a
+  >
+  <a
+    mat-list-item
+    class="mat-btn-nav"
+    routerLinkActive="active"
+    routerLink="articles"
+    >articles</a
+  >
+</mat-nav-list>

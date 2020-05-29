@@ -1,0 +1,55 @@
+@import "../../../../styles.scss";
+
+.contact-us {
+  padding: 6rem 2rem;
+  background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+}
+
+.content-wrapper {
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  border: 1px solid $color-main-3;
+  border-radius: 12px;
+  background-color: $color-white;
+  padding: 6rem 2rem;
+  margin: 3.7em auto;
+
+  @include respond(tab-land) {
+    // width < 1200?
+    width: 90%; //1 rem = 9px, 9/16 = 50%
+  }
+
+  .contact-section-heading {
+    text-align: center;
+
+    .heading-primary {
+      color: $color-main-3;
+    }
+  }
+}
+
+.form-group {
+  .form-control {
+    width: 100%;
+    margin-top: 2rem;
+
+    .control-input {
+      min-height: 20px;
+    }
+  }
+
+  .help-block {
+    text-transform: uppercase;
+    color: #1B5E20;
+  }
+}
+
+textarea {
+  max-height: 120px;
+}
+
+.button {
+  text-align: center;
+  margin-top: 2rem;
+}

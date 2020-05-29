@@ -1,0 +1,314 @@
+<section class="home">
+  <header class="header">
+    <mat-carousel
+      timings="250ms ease-in"
+      [autoplay]="true"
+      interval="5000"
+      color="primary"
+      maxWidth="auto"
+      proportion="47.5"
+      slides="3"
+      [loop]="true"
+      [hideArrows]="false"
+      [hideIndicators]="true"
+      [useKeyboard]="true"
+      [useMouseWheel]="false"
+      orientation="rtl"
+    >
+      <mat-carousel-slide
+        #matCarouselSlide
+        *ngFor="let slide of slides; let i = index"
+        [image]="slide.image"
+        overlayColor="#00000040"
+        [hideOverlay]="false"
+      ></mat-carousel-slide>
+    </mat-carousel>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <!-- Who We Are -->
+      <section class="section-about">
+        <mat-grid-list
+          role="list"
+          [cols]="columnNum"
+          rowHeight="450px"
+          gutterSize="20px"
+        >
+          <mat-grid-tile role="listitem" [colspan]="textCols">
+            <mat-grid-tile-header>
+              <h2 class="heading-secondary">who we are?</h2>
+            </mat-grid-tile-header>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque
+              numquam natus unde facilis nobis animi maxime explicabo quibusdam,
+              hic at amet, itaque repellat. Obcaecati, fugiat? Adipisci
+              laboriosam in nemo similique.
+            </p>
+            <mat-grid-tile-footer>
+              <div class="btnrm">
+                <button mat-raised-button class="btn" routerLink="/about">
+                  Read More
+                </button>
+              </div>
+            </mat-grid-tile-footer>
+          </mat-grid-tile>
+
+          <mat-grid-tile role="listitem" [colspan]="imgCols">
+            <img
+              class="img-fluid"
+              src="../../../assets/images/desktop-about-img.png"
+              alt="volunteer-1"
+            />
+          </mat-grid-tile>
+        </mat-grid-list>
+      </section>
+      <!-- Last Works -->
+      <section class="section-works">
+        <div class="heading-box">
+          <div class="heading">
+            <h2 class="heading-secondary">Last Works</h2>
+          </div>
+          <div class="link">
+            <button mat-raised-button class="btn" routerLink="./">
+              SEE ALL
+            </button>
+          </div>
+        </div>
+        <mat-grid-list [cols]="colNumVln" rowHeight="450px" gutterSize="20px">
+          <!-- Event 1 -->
+          <mat-grid-tile [colspan]="imgColsVln">
+            <a href="/" target="_blank" rel="noopener noreferrer">
+              <mat-card>
+                <img
+                  mat-card-image
+                  src="https://picsum.photos/400/300"
+                  alt=""
+                />
+                <mat-card-content>
+                  <div class="card-text-box">
+                    <h3>
+                      <mat-icon>location_on</mat-icon> Kafr Elsheikh,Academia
+                    </h3>
+                  </div>
+                  <p>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                </mat-card-content>
+              </mat-card>
+            </a>
+          </mat-grid-tile>
+          <!-- Event 2 -->
+          <mat-grid-tile [colspan]="imgColsVln">
+            <a href="/" target="_blank" rel="noopener noreferrer">
+              <mat-card>
+                <img
+                  mat-card-image
+                  src="https://picsum.photos/400/300"
+                  alt=""
+                />
+                <mat-card-content>
+                  <div class="card-text-box">
+                    <h3>
+                      <mat-icon>location_on</mat-icon> Kafr Elsheikh,Academia
+                    </h3>
+                  </div>
+                  <p>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                </mat-card-content>
+              </mat-card>
+            </a>
+          </mat-grid-tile>
+          <!-- Event 3 -->
+          <mat-grid-tile [colspan]="imgColsVln">
+            <a href="/" target="_blank" rel="noopener noreferrer">
+              <mat-card>
+                <img
+                  mat-card-image
+                  src="https://picsum.photos/400/300"
+                  alt=""
+                />
+                <mat-card-content>
+                  <div class="card-text-box">
+                    <h3>
+                      <mat-icon>location_on</mat-icon> Kafr Elsheikh,Academia
+                    </h3>
+                  </div>
+                  <p>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                </mat-card-content>
+              </mat-card>
+            </a>
+          </mat-grid-tile>
+          <!-- Event 4 -->
+          <mat-grid-tile [colspan]="imgColsVln">
+            <a href="/" target="_blank" rel="noopener noreferrer">
+              <mat-card>
+                <img
+                  mat-card-image
+                  src="https://picsum.photos/400/300"
+                  alt=""
+                />
+                <mat-card-content>
+                  <div class="card-text-box">
+                    <h3>
+                      <mat-icon>location_on</mat-icon> Kafr Elsheikh,Academia
+                    </h3>
+                  </div>
+                  <p>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                </mat-card-content>
+              </mat-card>
+            </a>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </section>
+      <!-- Last Articles -->
+      <section class="section-articles">
+        <div class="heading-box">
+          <div class="heading">
+            <h2 class="heading-secondary">Last Articles</h2>
+          </div>
+          <div class="link">
+            <button mat-raised-button class="btn" routerLink="./">
+              SEE ALL
+            </button>
+          </div>
+        </div>
+        <mat-grid-list
+          role="list"
+          [cols]="colNumVln"
+          rowHeight="450px"
+          gutterSize="20px"
+        >
+          <mat-grid-tile
+            [colspan]="imgColsVln"
+            *ngFor="let article of articles"
+          >
+            <a href="/" target="_blank" rel="noopener noreferrer">
+              <mat-card>
+                <img
+                  mat-card-image
+                  src="{{ article.image }}"
+                  title="{{ article.title }}"
+                  alt="{{ article.title }}"
+                />
+                <mat-card-content>
+                  <h3>
+                    {{ article.title }}
+                  </h3>
+                  <p>
+                    {{ article.description }}
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button class="btn-read" mat-raised-button color="primary">
+                    <a
+                      href="{{ article.link }}"
+                      title="{{ article.title }}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      READ MORE
+                      <mat-icon>open_in_new</mat-icon>
+                    </a>
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+            </a>
+          </mat-grid-tile>
+
+          <!-- Article 2 -->
+          <!-- <mat-grid-tile role="listitem" [colspan]="imgColsArticles">
+            <img
+              class="img-fluid"
+              src="../../../assets/images/article-img-2.png"
+              alt="article-2"
+            />
+          </mat-grid-tile>
+
+          <mat-grid-tile role="listitem" [colspan]="txtColsArticles">
+            <mat-grid-tile-header>
+              <h3 class="heading-tertiary">Lorem, ipsum</h3>
+            </mat-grid-tile-header>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque
+              numquam natus unde facilis nobis animi maxime explicabo quibusdam,
+              hic at amet, itaque repellat. Obcaecati, fugiat? Adipisci
+              laboriosam in nemo similique.
+            </p>
+            <mat-grid-tile-footer>
+              <div class="btnrm">
+                <button class="btn" routerLink="/about" mat-raised-button>
+                  Read More
+                </button>
+              </div>
+            </mat-grid-tile-footer>
+          </mat-grid-tile> -->
+          <!-- Article 3 -->
+          <!-- <mat-grid-tile role="listitem" [colspan]="txtColsArticles">
+            <mat-grid-tile-header>
+              <h3 class="heading-tertiary">Lorem, ipsum</h3>
+            </mat-grid-tile-header>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque
+              numquam natus unde facilis nobis animi maxime explicabo quibusdam,
+              hic at amet, itaque repellat. Obcaecati, fugiat? Adipisci
+              laboriosam in nemo similique.
+            </p>
+            <mat-grid-tile-footer>
+              <div class="btnrm">
+                <button class="btn" routerLink="/about" mat-raised-button>
+                  Read More
+                </button>
+              </div>
+            </mat-grid-tile-footer>
+          </mat-grid-tile>
+
+          <mat-grid-tile role="listitem" [colspan]="imgColsArticles">
+            <img
+              class="img-fluid"
+              src="../../../assets/images/article-img-3.png"
+              alt="article-3"
+            />
+          </mat-grid-tile> -->
+        </mat-grid-list>
+      </section>
+      <!-- Volunteers -->
+      <section class="section-volunteers">
+        <div class="heading-box">
+          <div class="heading">
+            <h2 class="heading-secondary">Volunteers</h2>
+          </div>
+          <div class="link">
+            <button mat-raised-button class="btn" routerLink="./">
+              SEE ALL
+            </button>
+          </div>
+        </div>
+        <mat-grid-list
+          role="list"
+          [cols]="colNumVln"
+          rowHeight="450px"
+          gutterSize="20px"
+        >
+          <!-- Members Images -->
+          <mat-grid-tile
+            role="listitem"
+            [colspan]="imgColsVln"
+            *ngFor="let v of volunteers"
+          >
+            <img mat-card-image src="{{ v.image }}" alt="volunteer-image" />
+          </mat-grid-tile>
+        </mat-grid-list>
+      </section>
+    </div>
+  </main>
+</section>

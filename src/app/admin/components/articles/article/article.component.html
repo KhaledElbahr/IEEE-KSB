@@ -1,0 +1,97 @@
+<section class="edit-profile">
+  <div class="content-wrapper">
+    <div class="contact-section-heading">
+      <h2 class="heading-primary" mat-dialog-title>{{ pageTitle }}</h2>
+    </div>
+    <main>
+      <div class="edit-profile-form">
+        <mat-dialog-content>
+          <form [formGroup]="articleForm">
+          <!-- Article Title -->
+          <div class="form-group">
+            <mat-form-field floatLabel="auto" class="form-control">
+              <mat-label>Article Title</mat-label>
+              <input
+                matInput
+                class="control-input"
+                type="text"
+                formControlName="title"
+                placeholder="Ex. Welcome..."
+                required
+              />
+            </mat-form-field>
+          </div>
+          <!-- Article link -->
+          <div class="form-group">
+            <mat-form-field floatLabel="auto" class="form-control">
+              <mat-label>Article link</mat-label>
+              <input
+                matInput
+                class="control-input"
+                type="text"
+                formControlName="link"
+                placeholder="Ex. @example.com"
+                required
+              />
+            </mat-form-field>
+          </div>
+          <!-- Date -->
+          <div class="form-group">
+            <mat-form-field class="form-control">
+              <mat-label>Choose a date</mat-label>
+              <input
+                matInput
+                class="control-input"
+                [min]="minDate"
+                [matDatepicker]="picker"
+                formControlName="date"
+                required
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <!-- Article Description -->
+          <div class="form-group">
+            <mat-form-field class="form-control">
+              <mat-label>Description</mat-label>
+              <textarea
+                matInput
+                class="control-input"
+                formControlName="description"
+                placeholder="Ex. It makes me feel..."
+              ></textarea>
+            </mat-form-field>
+          </div>
+          <mat-dialog-actions>
+            <button
+              mat-raised-button
+              color="primary"
+              [title]="
+                articleForm.valid
+                  ? 'Save your entered data'
+                  : 'Disabled until the form data is valid'
+              "
+              (click)="onSave()"
+              [disabled]="!articleForm.valid"
+            >
+              Save
+            </button>
+            <button
+              mat-raised-button
+              color="accent"
+              title="Cancel your data"
+              (click)="onCancel()"
+            >
+              Cancel
+            </button>
+          </mat-dialog-actions>
+          </form>
+        </mat-dialog-content>
+      </div>
+    </main>
+  </div>
+</section>
